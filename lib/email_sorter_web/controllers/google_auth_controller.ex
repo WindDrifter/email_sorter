@@ -7,6 +7,9 @@ defmodule EmailSorterWeb.GoogleAuthController do
   def index(conn, %{"code" => code}) do
     {:ok, token} = ElixirAuthGoogle.get_token(code, EmailSorterWeb.Endpoint.url())
     {:ok, profile} = ElixirAuthGoogle.get_user_profile(token.access_token)
+    IO.inspect(profile)
+    IO.inspect(token)
+
     conn
     |> put_view(EmailSorterWeb.PageView)
     |> render(:welcome, profile: profile)

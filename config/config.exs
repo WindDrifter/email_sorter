@@ -7,12 +7,28 @@
 # General application configuration
 import Config
 
-# DO NOT ADD API TO THIS FILE OR TO DOCUMENTATION
 config :email_sorter,
   ecto_repos: [EmailSorter.Repo],
-  generators: [timestamp_type: :utc_datetime],
-  google_client_api_key: System.get_env("GOOGLE_CLIENT_API_KEY"),
-  google_client_api_key_secret: System.get_env("GOOGLE_CLIENT_API_SECRET_KEY")
+  generators: [timestamp_type: :utc_datetime]
+
+
+config :elixir_auth_google,
+  client_id: System.get_env("GOOGLE_CLIENT_ID"),
+  client_secret: System.get_env("GOOGLE_CLIENT_SECRET"),
+  redirect_uri: System.get_env("GOOGLE_REDIRECT_URI", "http://localhost:4000/auth/google/callback")
+
+
+  # google_client_api_key: System.get_env("GOOGLE_CLIENT_API_KEY"),
+  # google_client_api_key_secret: System.get_env("GOOGLE_CLIENT_API_SECRET_KEY")
+
+
+config :nx, default_backend: EXLA.Backend
+
+
+
+# Configure Goth (Google Auth)
+config :goth,
+  json: System.get_env("GOOGLE_CREDENTIALS_JSON") || "credentials.json"
 
 # Configures the endpoint
 config :email_sorter, EmailSorterWeb.Endpoint,
@@ -46,7 +62,7 @@ config :esbuild,
 
 # Configure tailwind (the version is required)
 config :tailwind,
-  version: "3.4.3",
+  version: "3.4.0",
   email_sorter: [
     args: ~w(
       --config=tailwind.config.js

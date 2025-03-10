@@ -1,18 +1,14 @@
-# EmailSorter
+# Gmail AI Sorter
 
-To start your Phoenix server:
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Configuration
+Sadly all are still WIP
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+UNIX setup
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+create enviroment variables
+- `export GOOGLE_CLIENT_ID="insert_client_id_here"`
+- `export GOOGLE_CLIENT_SECRET="insert_client_id_here"`
 
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+- run `mix ecto.reset`
+- run `mix phx.server`

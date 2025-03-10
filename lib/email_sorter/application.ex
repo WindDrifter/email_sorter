@@ -14,8 +14,8 @@ defmodule EmailSorter.Application do
       {Phoenix.PubSub, name: EmailSorter.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: EmailSorter.Finch},
-      # Start a worker by calling: EmailSorter.Worker.start_link(arg)
-      # {EmailSorter.Worker, arg},
+      # Start the Gmail Sorter
+      # {EmailSorter.GmailSorter, []},
       # Start to serve requests, typically the last entry
       EmailSorterWeb.Endpoint
     ]

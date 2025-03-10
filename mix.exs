@@ -58,7 +58,14 @@ defmodule EmailSorter.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:google_api_gmail, "~> 0.16"},
+      {:goth, "~> 1.4"},
+      {:nx, "~> 0.6"},
+      {:axon, "~> 0.6"},
+      {:bumblebee, "~> 0.4"},
+      {:exla, "~> 0.6"},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 
